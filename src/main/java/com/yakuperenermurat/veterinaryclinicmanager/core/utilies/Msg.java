@@ -2,6 +2,7 @@ package com.yakuperenermurat.veterinaryclinicmanager.core.utilies;
 
 public class Msg {
 
+    // Mesaj sabitlerini tutan yardımcı sınıf
     public static final String CREATED = "Kayıt başarıyla eklendi.";
     public static final String VALIDATE_ERROR = "Geçersiz veri girişi.";
     public static final String OK = "İşlem başarılı.";

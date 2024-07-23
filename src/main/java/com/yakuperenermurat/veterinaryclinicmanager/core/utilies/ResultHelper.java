@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 
 public class ResultHelper {
 
+    // Sonuç ve hata mesajları oluşturmak için yardımcı metotlar
+
     public static <T> ResultData<T> created(T data) {
         return new ResultData<>(true, Msg.CREATED, "201", data);
     }

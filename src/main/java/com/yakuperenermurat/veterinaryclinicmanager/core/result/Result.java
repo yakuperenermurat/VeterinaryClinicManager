@@ -10,6 +10,7 @@ public class Result {
     private String code;
 
     public Result(boolean status, String message, String code) {
+        // Sonuç sınıfı, işlem durumunu, mesajını ve kodunu tutar
         this.status = status;
         this.message = message;
         this.code = code;

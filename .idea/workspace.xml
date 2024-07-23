@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="99f4fcbe-244b-4853-b06a-e4b41a63bf73" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/veterinaryClinicManager.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/veterinaryclinicmanager.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/config/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/config/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/AlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/AlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/ScheduleConflictException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/ScheduleConflictException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/exception/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/result/ResultData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/result/ResultData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/utilies/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/utilies/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/utilies/ResultHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core/utilies/ResultHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAnimalRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAnimalRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAppointmentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAppointmentRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAvailableDateRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IAvailableDateRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/ICustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/ICustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IDoctorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IDoctorRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IVaccineRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dao/IVaccineRepo.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2jKFCY8fqfHKnoL75MXep6vRwZ2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.VeterinaryClinicManagerApplicationTests.executor": "Run",
+    "JUnit.VeterinaryClinicManagerApplicationTests.testSaveAnimal.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.VeterinaryClinicManagerApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/yakuperenermurat/Documents/GitHub/VeterinaryClinicManager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/dto/response" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/yakuperenermurat/veterinaryclinicmanager/core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.VeterinaryClinicManagerApplication">
+    <configuration name="VeterinaryClinicManagerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VeterinaryClinicManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yakuperenermurat.veterinaryclinicmanager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yakuperenermurat.veterinaryclinicmanager" />
+      <option name="MAIN_CLASS_NAME" value="com.yakuperenermurat.veterinaryclinicmanager.VeterinaryClinicManagerApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VeterinaryClinicManagerApplicationTests.testSaveAnimal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VeterinaryClinicManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yakuperenermurat.veterinaryclinicmanager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yakuperenermurat.veterinaryclinicmanager" />
+      <option name="MAIN_CLASS_NAME" value="com.yakuperenermurat.veterinaryclinicmanager.VeterinaryClinicManagerApplicationTests" />
+      <option name="METHOD_NAME" value="testSaveAnimal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VeterinaryClinicManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="VeterinaryClinicManager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yakuperenermurat.veterinaryclinicmanager.VeterinaryClinicManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.VeterinaryClinicManagerApplicationTests" />
+        <item itemvalue="JUnit.VeterinaryClinicManagerApplicationTests.testSaveAnimal" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99f4fcbe-244b-4853-b06a-e4b41a63bf73" name="Changes" comment="" />
+      <created>1721127735011</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721127735011</updated>
+      <workItem from="1721127736555" duration="17653000" />
+      <workItem from="1721378147423" duration="8386000" />
+      <workItem from="1721638893621" duration="598000" />
+      <workItem from="1721735441916" duration="14488000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IDoctorRepo extends JpaRepository<Doctor, Long> {
+    // Belirli bir isme sahip doktorları bul
     List<Doctor> findByName(String name);
 }

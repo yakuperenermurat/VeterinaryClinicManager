@@ -1,8 +1,9 @@
 package com.yakuperenermurat.veterinaryclinicmanager.core.exception;
 
-public class ScheduleConflictException extends RuntimeException{
+public class ScheduleConflictException extends RuntimeException {
 
     public ScheduleConflictException(String message) {
+        // Zamanlama çakışması olduğunda fırlatılan özel hata sınıfı
         super(message);
     }
 
