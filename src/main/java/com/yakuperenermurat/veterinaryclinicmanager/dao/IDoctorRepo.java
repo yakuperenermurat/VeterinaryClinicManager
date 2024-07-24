@@ -8,4 +8,5 @@ import java.util.List;
 public interface IDoctorRepo extends JpaRepository<Doctor, Long> {
     // Belirli bir isme sahip doktorları bul
     List<Doctor> findByName(String name);
+    boolean existsByMailOrPhone(String mail, String phone);
 }

@@ -16,4 +16,8 @@ public interface IAppointmentService {
     List<AppointmentResponse> getByAnimalId(Long animal); // Hayvan ID'sine göre randevuları getirme
     List<AppointmentResponse> getByDoctorId(Long doctor); // Doktor ID'sine göre randevuları getirme
     List<AppointmentResponse> getByDateRange(LocalDateTime startDate, LocalDateTime endDate); // Tarih aralığına göre randevuları getirme
+
+    List<AppointmentResponse> getByAnimalIdAndDateRange(Long animalId, LocalDateTime startDate, LocalDateTime endDate);
+
+    List<AppointmentResponse> getByDoctorIdAndDateRange(Long doctorId, LocalDateTime startDate, LocalDateTime endDate);
 }

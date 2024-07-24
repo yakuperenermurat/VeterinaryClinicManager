@@ -1,5 +1,5 @@
 package com.yakuperenermurat.veterinaryclinicmanager.business.concretes;
-
+import com.yakuperenermurat.veterinaryclinicmanager.core.exception.AlreadyExistsException;
 import com.yakuperenermurat.veterinaryclinicmanager.business.abstracts.IAvailableDateService;
 import com.yakuperenermurat.veterinaryclinicmanager.core.exception.NotFoundException;
 import com.yakuperenermurat.veterinaryclinicmanager.core.utilies.Msg;
@@ -30,6 +30,11 @@ public class AvailableDateManager implements IAvailableDateService {
 
     @Override
     public AvailableDateResponse save(AvailableDateSaveRequest availableDateSaveRequest) {
+        // Belirtilen doktor için aynı tarih var mı kontrol et
+        if (availableDateRepository.existsByDoctorIdAndAvailableDate(availableDateSaveRequest.getDoctorId(), availableDateSaveRequest.getAvailableDate())) {
+            throw new AlreadyExistsException(Msg.ALREADY_EXISTS);
+        }
+
         // Yeni bir AvailableDate nesnesi oluştur
         AvailableDate availableDate = new AvailableDate();
         availableDate.setAvailableDate(availableDateSaveRequest.getAvailableDate());
@@ -52,6 +57,12 @@ public class AvailableDateManager implements IAvailableDateService {
         // Belirtilen ID'ye sahip müsait tarihi güncelle
         AvailableDate availableDate = availableDateRepository.findById(availableDateUpdateRequest.getId())
                 .orElseThrow(() -> new NotFoundException(Msg.NOT_FOUND));
+
+        // Güncelleme sırasında aynı doktora aynı tarih atanmış mı kontrol et
+        if (availableDateRepository.existsByDoctorIdAndAvailableDate(availableDateUpdateRequest.getDoctorId(), availableDateUpdateRequest.getAvailableDate()) && !availableDate.getId().equals(availableDateUpdateRequest.getId())) {
+            throw new AlreadyExistsException(Msg.ALREADY_EXISTS);
+        }
+
         modelMapper.map(availableDateUpdateRequest, availableDate);
         AvailableDate updatedAvailableDate = availableDateRepository.save(availableDate);
         return modelMapper.map(updatedAvailableDate, AvailableDateResponse.class);

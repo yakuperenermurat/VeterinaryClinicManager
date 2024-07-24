@@ -2,8 +2,10 @@ package com.yakuperenermurat.veterinaryclinicmanager.business.abstracts;
 
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineSaveRequest;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineUpdateRequest;
+import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineAnimalResponse;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineResponse;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IVaccineService {
@@ -13,4 +15,6 @@ public interface IVaccineService {
     boolean delete(Long id); // Aşı silme
     List<VaccineResponse> getAll(); // Tüm aşıları getirme
     List<VaccineResponse> getByAnimalId(Long animalId); // Hayvan ID'sine göre aşıları getirme
+
+    List<VaccineAnimalResponse> getByProtectionFinishDateBetween(LocalDate startDate, LocalDate endDate);
 }

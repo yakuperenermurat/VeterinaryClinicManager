@@ -3,13 +3,16 @@ package com.yakuperenermurat.veterinaryclinicmanager.api;
 import com.yakuperenermurat.veterinaryclinicmanager.business.abstracts.IVaccineService;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineSaveRequest;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineUpdateRequest;
+import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineAnimalResponse;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -57,5 +60,22 @@ public class VaccineController {
     public ResponseEntity<List<VaccineResponse>> getVaccinesByAnimalId(@PathVariable Long animalId) {
         List<VaccineResponse> vaccineResponses = vaccineService.getByAnimalId(animalId);
         return new ResponseEntity<>(vaccineResponses, HttpStatus.OK); // 200 OK status kodu döner
+    }
+
+    @GetMapping("/filter-by-finish-date")
+    public ResponseEntity<List<VaccineAnimalResponse>> getVaccinesByProtectionFinishDateBetween(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+
+        // Eksik parametreler için varsayılan değerler belirleyin
+        if (startDate == null) {
+            startDate = LocalDate.of(1900, 1, 1); // Çok eski bir tarih
+        }
+        if (endDate == null) {
+            endDate = LocalDate.now(); // Bugünün tarihi
+        }
+
+        List<VaccineAnimalResponse> responses = vaccineService.getByProtectionFinishDateBetween(startDate, endDate);
+        return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 }

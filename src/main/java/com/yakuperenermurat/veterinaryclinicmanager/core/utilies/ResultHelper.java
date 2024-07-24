@@ -47,4 +47,7 @@ public class ResultHelper {
     public static <T> ResultData<T> internalServerError(T data, String message) {
         return new ResultData<>(false, message, String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), data);
     }
+    public static Result scheduleConflictError(String message) {
+        return new Result(false, message, "409");
+    }
 }

@@ -71,4 +71,20 @@ public class AppointmentController {
         List<AppointmentResponse> appointmentResponses = appointmentService.getByDateRange(startDate, endDate);
         return new ResponseEntity<>(appointmentResponses, HttpStatus.OK); // 200 OK status kodu döner
     }
+    @GetMapping("/filter-by-animal-and-date")
+    public ResponseEntity<List<AppointmentResponse>> getAppointmentsByAnimalIdAndDateRange(
+            @RequestParam Long animalId,
+            @RequestParam LocalDateTime startDate,
+            @RequestParam LocalDateTime endDate) {
+        List<AppointmentResponse> responses = appointmentService.getByAnimalIdAndDateRange(animalId, startDate, endDate);
+        return new ResponseEntity<>(responses, HttpStatus.OK);
+    }
+    @GetMapping("/filter-by-doctor-and-date")
+    public ResponseEntity<List<AppointmentResponse>> getAppointmentsByDoctorIdAndDateRange(
+            @RequestParam Long doctorId,
+            @RequestParam LocalDateTime startDate,
+            @RequestParam LocalDateTime endDate) {
+        List<AppointmentResponse> responses = appointmentService.getByDoctorIdAndDateRange(doctorId, startDate, endDate);
+        return new ResponseEntity<>(responses, HttpStatus.OK);
+    }
 }

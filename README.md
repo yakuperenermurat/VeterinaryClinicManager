@@ -28,6 +28,8 @@ Bu proje, veteriner yönetim sistemi için bir REST API sağlar. CRUD işlemleri
 | GET         | /api/appointments/animal/{animalId}| Hayvan ID'sine göre randevuları getirir      |
 | GET         | /api/appointments/doctor/{doctorId}| Doktor ID'sine göre randevuları getirir      |
 | GET         | /api/appointments/date-range     | Tarih aralığına göre randevuları getirir      |
+| GET         | /api/appointments/filter-by-animal-and-date | Hayvan ID'sine ve tarih aralığına göre randevuları getirir      |
+| GET         | /api/appointments/filter-by-doctor-and-date | Doktor ID'sine ve tarih aralığına göre randevuları getirir      |
 
 ### Available Date Endpoints
 
@@ -72,6 +74,7 @@ Bu proje, veteriner yönetim sistemi için bir REST API sağlar. CRUD işlemleri
 | DELETE      | /api/vaccines/{id}               | Belirtilen id ile aşıyı siler                 |
 | GET         | /api/vaccines                    | Tüm aşıları getirir                           |
 | GET         | /api/vaccines/animal/{animalId}  | Hayvan ID'sine göre aşıları getirir           |
+| GET         | /api/vaccines/filter-by-finish-date | Tarih aralığına göre aşıları getirir          |
 
 ## Kurulum ve Çalıştırma
 

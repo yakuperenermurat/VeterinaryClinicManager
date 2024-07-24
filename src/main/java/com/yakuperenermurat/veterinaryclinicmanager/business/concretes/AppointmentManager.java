@@ -163,4 +163,28 @@ public class AppointmentManager implements IAppointmentService {
                 })
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<AppointmentResponse> getByAnimalIdAndDateRange(Long animalId, LocalDateTime startDate, LocalDateTime endDate) {
+        List<Appointment> appointments = appointmentRepository.findByAnimalIdAndAppointmentDateBetween(animalId, startDate, endDate);
+        return appointments.stream()
+                .map(appointment -> {
+                    AppointmentResponse response = modelMapper.map(appointment, AppointmentResponse.class);
+                    response.setMessage(Msg.OK);
+                    return response;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<AppointmentResponse> getByDoctorIdAndDateRange(Long doctorId, LocalDateTime startDate, LocalDateTime endDate) {
+        List<Appointment> appointments = appointmentRepository.findByDoctorIdAndAppointmentDateBetween(doctorId, startDate, endDate);
+        return appointments.stream()
+                .map(appointment -> {
+                    AppointmentResponse response = modelMapper.map(appointment, AppointmentResponse.class);
+                    response.setMessage(Msg.OK);
+                    return response;
+                })
+                .collect(Collectors.toList());
+    }
 }

@@ -2,6 +2,7 @@ package com.yakuperenermurat.veterinaryclinicmanager.core.config;
 
 import com.yakuperenermurat.veterinaryclinicmanager.core.exception.AlreadyExistsException;
 import com.yakuperenermurat.veterinaryclinicmanager.core.exception.NotFoundException;
+import com.yakuperenermurat.veterinaryclinicmanager.core.exception.ScheduleConflictException;
 import com.yakuperenermurat.veterinaryclinicmanager.core.result.Result;
 import com.yakuperenermurat.veterinaryclinicmanager.core.result.ResultData;
 import com.yakuperenermurat.veterinaryclinicmanager.core.utilies.ResultHelper;
@@ -50,5 +51,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Result> handleAllExceptions(Exception e) {
         // Genel hataları ele al
         return new ResponseEntity<>(ResultHelper.internalServerError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    @ExceptionHandler(ScheduleConflictException.class)
+    public ResponseEntity<Result> handleScheduleConflictException(ScheduleConflictException e) {
+        // Randevu çakışma hatalarını ele al
+        return new ResponseEntity<>(ResultHelper.scheduleConflictError(e.getMessage()), HttpStatus.CONFLICT);
     }
 }

@@ -7,17 +7,20 @@ import com.yakuperenermurat.veterinaryclinicmanager.dao.IAnimalRepo;
 import com.yakuperenermurat.veterinaryclinicmanager.dao.IVaccineRepo;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineSaveRequest;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.vaccine.VaccineUpdateRequest;
+import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineAnimalResponse;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.response.vaccine.VaccineResponse;
 import com.yakuperenermurat.veterinaryclinicmanager.entities.Vaccine;
 import com.yakuperenermurat.veterinaryclinicmanager.entities.Animal;
+import jakarta.validation.ValidationException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class VaccineManager implements IVaccineService {
-
     private final IVaccineRepo vaccineRepository;
     private final IAnimalRepo animalRepository;
     private final ModelMapper modelMapper;
@@ -33,6 +36,17 @@ public class VaccineManager implements IVaccineService {
         // Belirtilen hayvanı getir
         Animal animal = animalRepository.findById(vaccineSaveRequest.getAnimalId())
                 .orElseThrow(() -> new NotFoundException(Msg.NOT_FOUND));
+
+        // Koruyuculuk bitiş tarihini kontrol et
+        if (vaccineSaveRequest.getProtectionFinishDate().isBefore(LocalDate.now())) {
+            throw new ValidationException("Aşı koruyuculuk bitiş tarihi geçmiş.");
+        }
+
+        // Hayvanın aynı aşıya sahip olup olmadığını kontrol et
+        boolean exists = vaccineRepository.existsByAnimal_IdAndCode(animal.getId(), vaccineSaveRequest.getCode());
+        if (exists) {
+            throw new ValidationException("Bu hayvan için bu aşı zaten kayıtlı.");
+        }
 
         // Yeni bir Vaccine nesnesi oluştur ve kaydet
         Vaccine vaccine = new Vaccine();
@@ -95,6 +109,24 @@ public class VaccineManager implements IVaccineService {
         List<Vaccine> vaccines = vaccineRepository.findByAnimalId(animalId);
         return vaccines.stream()
                 .map(vaccine -> modelMapper.map(vaccine, VaccineResponse.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VaccineAnimalResponse> getByProtectionFinishDateBetween(LocalDate startDate, LocalDate endDate) {
+        List<Vaccine> vaccines = vaccineRepository.findByProtectionFinishDateBetween(startDate, endDate);
+        return vaccines.stream()
+                .map(vaccine -> {
+                    VaccineAnimalResponse response = modelMapper.map(vaccine, VaccineAnimalResponse.class);
+                    response.setAnimalId(vaccine.getAnimal().getId());
+                    response.setAnimalName(vaccine.getAnimal().getName());
+                    response.setSpecies(vaccine.getAnimal().getSpecies());
+                    response.setBreed(vaccine.getAnimal().getBreed());
+                    response.setGender(vaccine.getAnimal().getGender());
+                    response.setColour(vaccine.getAnimal().getColour());
+                    response.setDateOfBirth(vaccine.getAnimal().getDateOfBirth());
+                    return response;
+                })
                 .collect(Collectors.toList());
     }
 }

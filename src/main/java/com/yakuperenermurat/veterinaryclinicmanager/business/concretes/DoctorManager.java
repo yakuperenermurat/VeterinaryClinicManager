@@ -1,12 +1,16 @@
 package com.yakuperenermurat.veterinaryclinicmanager.business.concretes;
 
+import com.yakuperenermurat.veterinaryclinicmanager.business.abstracts.IAvailableDateService;
 import com.yakuperenermurat.veterinaryclinicmanager.business.abstracts.IDoctorService;
+import com.yakuperenermurat.veterinaryclinicmanager.core.exception.AlreadyExistsException;
 import com.yakuperenermurat.veterinaryclinicmanager.core.exception.NotFoundException;
 import com.yakuperenermurat.veterinaryclinicmanager.core.utilies.Msg;
+import com.yakuperenermurat.veterinaryclinicmanager.dao.IAvailableDateRepo;
 import com.yakuperenermurat.veterinaryclinicmanager.dao.IDoctorRepo;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.doctor.DoctorSaveRequest;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.request.doctor.DoctorUpdateRequest;
 import com.yakuperenermurat.veterinaryclinicmanager.dto.response.doctor.DoctorResponse;
+import com.yakuperenermurat.veterinaryclinicmanager.entities.AvailableDate;
 import com.yakuperenermurat.veterinaryclinicmanager.entities.Doctor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -19,16 +23,21 @@ import java.util.stream.Collectors;
 public class DoctorManager implements IDoctorService {
 
     private final IDoctorRepo doctorRepository;
+    private final IAvailableDateRepo availableDateRepository;
     private final ModelMapper modelMapper;
 
-    public DoctorManager(IDoctorRepo doctorRepository, ModelMapper modelMapper) {
+    public DoctorManager(IDoctorRepo doctorRepository, IAvailableDateRepo availableDateRepository, ModelMapper modelMapper) {
         this.doctorRepository = doctorRepository;
+        this.availableDateRepository = availableDateRepository;
         this.modelMapper = modelMapper;
     }
 
     @Override
     public DoctorResponse save(DoctorSaveRequest doctorSaveRequest) {
-        // Yeni bir Doctor nesnesi oluştur ve kaydet
+        if (doctorRepository.existsByMailOrPhone(doctorSaveRequest.getMail(), doctorSaveRequest.getPhone())) {
+            throw new AlreadyExistsException("Bu mail adresi veya telefon numarası zaten kullanılıyor.");
+        }
+
         Doctor doctor = modelMapper.map(doctorSaveRequest, Doctor.class);
         Doctor savedDoctor = doctorRepository.save(doctor);
         return modelMapper.map(savedDoctor, DoctorResponse.class);
@@ -79,8 +88,8 @@ public class DoctorManager implements IDoctorService {
     }
 
     @Override
-    public boolean isDoctorAvailable(long doctor, LocalDate date) {
-        // Doktorun belirtilen tarihte müsait olup olmadığını kontrol et (şimdilik her zaman müsait)
-        return true;
+    public boolean isDoctorAvailable(long doctorId, LocalDate date) {
+        List<AvailableDate> availableDates = availableDateRepository.findByDoctorId(doctorId);
+        return availableDates.stream().anyMatch(d -> d.getAvailableDate().equals(date));
     }
 }

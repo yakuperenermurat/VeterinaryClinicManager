@@ -18,4 +18,6 @@ public interface IAppointmentRepo extends JpaRepository<Appointment, Long> {
 
     // Doktor ID'sine ve randevu tarihine göre çakışma olup olmadığını kontrol et
     boolean existsByDoctor_IdAndAppointmentDate(Long doctorId, LocalDateTime appointmentDate);
+    List<Appointment> findByAnimalIdAndAppointmentDateBetween(Long animalId, LocalDateTime startDate, LocalDateTime endDate);
+    List<Appointment> findByDoctorIdAndAppointmentDateBetween(Long doctorId, LocalDateTime startDate, LocalDateTime endDate);
 }
