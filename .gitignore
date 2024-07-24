@@ -22,3 +22,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# İstenmeyen dosyalar ve dizinler
+*.DS_Store
+.Trash/
+Downloads/
+*.log
+__pycache__/
+*.ipynb
+.idea/
+.vscode/
