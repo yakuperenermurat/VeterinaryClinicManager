@@ -494,7 +494,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Tetonoz\",\n  \"code\": \"T001\",\n  \"protectionStartDate\": \"2024-04-15\",\n  \"protectionFinishDate\": \"2024-11-21\",\n  \"animalId\": 5\n}",
+							"raw": "{\n  \"name\": \"Vaccine A\",\n  \"code\": \"VA123\",\n  \"protectionStartDate\": \"2024-01-01\",\n  \"protectionFinishDate\": \"2023-01-01\",\n  \"animalId\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -633,7 +633,26 @@
 					"name": "Get Vaccines Finish Date By Animal Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vaccines/filter-by-finish-date?endDate=2024-12-04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vaccines",
+								"filter-by-finish-date"
+							],
+							"query": [
+								{
+									"key": "endDate",
+									"value": "2024-12-04"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -649,7 +668,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"availableDate\": \"2024-07-21\",\n  \"doctorId\": 1\n}",
+							"raw": "{\n  \"availableDate\": \"2024-04-23\",\n  \"doctorId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -747,7 +766,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/availabledates/2",
+							"raw": "http://localhost:8080/api/availabledates/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -756,7 +775,7 @@
 							"path": [
 								"api",
 								"availabledates",
-								"2"
+								"6"
 							]
 						}
 					},
@@ -796,7 +815,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"appointmentDate\": \"2024-08-20T11:00:00\",\n  \"animalId\": 5,\n  \"doctorId\": 4\n}",
+							"raw": "{\n  \"appointmentDate\": \"2024-04-23T11:00:00\",\n  \"animalId\": 2,\n  \"doctorId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1000,7 +1019,34 @@
 					"name": "Get Appointments By Date Range and By Animal Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/filter-by-animal-and-date?animalId=5&startDate=2024-01-01T10:00:00&endDate=2024-12-04T10:00:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"appointments",
+								"filter-by-animal-and-date"
+							],
+							"query": [
+								{
+									"key": "animalId",
+									"value": "5"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01T10:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-12-04T10:00:00"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1008,7 +1054,34 @@
 					"name": "Get Appointments By Date Range and By Doctor Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/appointments/filter-by-doctor-and-date?doctorId=2&startDate=2024-05-01T10:00:00&endDate=2024-12-04T10:00:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"appointments",
+								"filter-by-doctor-and-date"
+							],
+							"query": [
+								{
+									"key": "doctorId",
+									"value": "2"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-05-01T10:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-12-04T10:00:00"
+								}
+							]
+						}
 					},
 					"response": []
 				}
